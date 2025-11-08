@@ -1,0 +1,61 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pyc
+*.pdb
+*.egg
+*.egg-info/
+*.so
+
+# Django specific
+db.sqlite3
+/media/
+staticfiles/
+static/
+.env
+*.log
+
+# Virtual environments
+venv/
+env/
+ENV/
+.venv/
+.env.bak
+env.bak/
+
+# IDE and editor files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# OS-specific
+.DS_Store
+Thumbs.db
+
+# Build and packaging
+build/
+dist/
+*.egg-info/
+.eggs/
+pip-wheel-metadata/
+
+# Test and coverage
+.coverage
+htmlcov/
+.tox/
+.nox/
+.pytest_cache/
+
+# Temporary files
+*.swp
+*.tmp
+*.bak
+*.orig
+*.old
+
+# Render / Railway / Heroku specific
+*.sqlite3
+Procfile
