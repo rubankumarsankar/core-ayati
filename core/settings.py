@@ -9,8 +9,10 @@ https://docs.djangoproject.com/en/5.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.2/ref/settings/
 """
+import os
 
 from pathlib import Path
+from datetime import timedelta
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -21,11 +23,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure--wam#ei#76x1f)(oo3475^er1y&q$n&_i2s)p_d)-4%^b@!b(l'
-
+ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS", "*").split(",")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+# ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -56,6 +58,7 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'core.urls'
+WSGI_APPLICATION = "core.wsgi.application"
 
 TEMPLATES = [
     {
@@ -156,7 +159,7 @@ REST_FRAMEWORK = {
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",  # Next.js dev
-    # "https://your-frontend-domain.com",  # add when live
+    "https://ayati.ayatiworks.com",  # add when live
 ]
 
 CORS_ALLOW_ALL_ORIGINS = True
