@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     "rest_framework",
     "rest_framework.authtoken",
     "accounts",
+    "blog"
 
 
 ]
@@ -93,7 +94,7 @@ DATABASES = {
         "ENGINE": "django.db.backends.mysql",
         "NAME": "ayati_core",      # create this DB in MySQL
         "USER": "root",
-        "PASSWORD": "ruban",
+        "PASSWORD": "ayati",
         "HOST": "127.0.0.1",
         "PORT": "3306",
         "OPTIONS": {
@@ -172,3 +173,5 @@ SIMPLE_JWT = {
     "REFRESH_TOKEN_LIFETIME": timedelta(days=7),
     "AUTH_HEADER_TYPES": ("Bearer",),
 }
+MEDIA_URL = "/media/"
+MEDIA_ROOT = BASE_DIR / "media"
