@@ -51,7 +51,6 @@ class RegisterSerializer(serializers.ModelSerializer):
 class LoginSerializer(serializers.Serializer):
     """
     Basic login using username + password.
-    (If you want email login too, we can extend this.)
     """
 
     username = serializers.CharField()
@@ -75,21 +74,23 @@ class LoginSerializer(serializers.Serializer):
 
 class UserSerializer(serializers.ModelSerializer):
     """
-    Read-only user serializer for normal responses (login, /me, etc.).
-    Shows nested role.
+    Read-only serializer for normal responses (login, /me, etc.).
+    Includes user_code + nested role.
     """
 
-    role = RoleSerializer()
+    role = RoleSerializer(read_only=True)
 
     class Meta:
         model = User
-        fields = ["id", "username", "email", "role"]
+        fields = ["id", "user_code", "username", "email", "role"]
+        read_only_fields = ["id", "user_code", "role"]
 
 
 class AdminUserSerializer(serializers.ModelSerializer):
     """
     Admin-only serializer used in UserViewSet.
-    - Can view & edit users.
+
+    - View & edit users.
     - Set role via slug.
     - Optionally update password.
     """
@@ -111,6 +112,7 @@ class AdminUserSerializer(serializers.ModelSerializer):
         model = User
         fields = [
             "id",
+            "user_code",
             "username",
             "email",
             "role",
@@ -119,7 +121,7 @@ class AdminUserSerializer(serializers.ModelSerializer):
             "is_superuser",
             "password",
         ]
-        read_only_fields = ["id"]
+        read_only_fields = ["id", "user_code"]
 
     def validate_password(self, value):
         if value:
