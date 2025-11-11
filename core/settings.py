@@ -106,7 +106,7 @@ WSGI_APPLICATION = 'core.wsgi.application'
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.mysql",
-        "NAME": "ayatiworks$ayati_core",  # must include username prefix on PythonAnywhere
+        "NAME": "ayatiworks$default",  # must include username prefix on PythonAnywhere
         "USER": "ayatiworks",
         "PASSWORD": "ayati1234",
         "HOST": "ayatiworks.mysql.pythonanywhere-services.com",
