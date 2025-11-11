@@ -89,19 +89,34 @@ WSGI_APPLICATION = 'core.wsgi.application'
 #     }
 # }
 
+# DATABASES = {
+#     "default": {
+#         "ENGINE": "django.db.backends.mysql",
+#         "NAME": "ayati_core",      # create this DB in MySQL
+#         "USER": "root",
+#         "PASSWORD": "ayati",
+#         "HOST": "127.0.0.1",
+#         "PORT": "3306",
+#         "OPTIONS": {
+#             "charset": "utf8mb4",
+#         },
+#     }
+# }
+
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.mysql",
-        "NAME": "ayati_core",      # create this DB in MySQL
-        "USER": "root",
-        "PASSWORD": "ayati",
-        "HOST": "127.0.0.1",
+        "NAME": "ayatiworks$ayati_core",  # must include username prefix on PythonAnywhere
+        "USER": "ayatiworks",
+        "PASSWORD": "ayati1234",
+        "HOST": "ayatiworks.mysql.pythonanywhere-services.com",
         "PORT": "3306",
         "OPTIONS": {
             "charset": "utf8mb4",
         },
     }
 }
+
 
 
 # Password validation
